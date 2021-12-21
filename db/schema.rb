@@ -14,9 +14,9 @@ ActiveRecord::Schema.define(version: 2021_12_19_115709) do
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
+    t.string "kidsname"
     t.string "email"
     t.string "password_digest"
-    t.string "kids_name"
     t.integer "balance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
