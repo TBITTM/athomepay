@@ -1,0 +1,27 @@
+<h2><%= current_user.kidsname %>ちゃんやり取り履歴一覧</h2>
+<h3>現在残高　　<%= current_user.balance %>ペイ　　です</h3>
+<table class="table table-bordered table-striped">
+    <th class="text-start">No.</th>
+    <th class="text-start">取引日時</th>
+    <th class="text-start">あげる/へらす</th>
+    <th class="text-start">内容</th>
+    <th class="text-start">金額</th>
+    <th class="text-start">残高（取引当時）</th>
+    <th class="text-start">取消</th>
+
+    
+<% @history.each do |history| %>
+<tr>
+<td><%= history.id %></td>
+<td><%= history.created_at.to_s(:datetime_jp) %></td>
+<td><%= history.give_take %></td>
+<td><%= history.remarks %></td>
+<td><%= history.price %></td>
+<td><%= history.balance %>ペイ</td>
+
+<td><%= link_to "取消", history, method: :delete, data: { confirm: "取り消しますか?" }, class: 'btn btn-success btn-sm' %>
+</td>
+</tr>
+
+<% end %>
+<%== pagy_bootstrap_nav(@pagy) %>

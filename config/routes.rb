@@ -7,4 +7,10 @@ Rails.application.routes.draw do
     
     get 'signup', to: 'users#new'
     resources :users, only: [:index, :show, :new, :create]
+    resources :tasks, only: [:index, :show, :new, :create, :destroy, :update, :edit]
+    resources :account_activities, only: [:index, :show, :new, :create, :destroy, :update, :edit] do
+        collection do
+      get :history
+    end
+end
 end

@@ -1,10 +1,34 @@
 <% if logged_in? %>
-  <p><%= @kidsname %>ちゃんの現在残高</p>
+  <h2><%= current_user.kidsname %>ちゃんの現在残高</h2>
+
+<h1 class="text-center text-dark"><%= image_tag "graypig.png" %><%= current_user.balance %>ペイ　　です</h1>
+   
+<div class="row"> 
+    <div class="col-lg-6"><%= link_to 'ペイをあげるorへらす', new_account_activity_path(current_user), class: 'btn btn-lg btn-success w-100 col-lg-6'%></div>
+    <div class="col-lg-3"><%= link_to 'やりとり履歴一覧', history_account_activities_path(current_user), class: 'btn btn-lg btn-success'%></div>
+    <div class="col-lg-3"><%= link_to 'お手伝い項目一覧', tasks_path(current_user), class: 'btn btn-lg btn-success'%></div>
+  </div> 
 <% else %>
-<div class="bg-secondary p-3 p-sm-5 my-4 rounded">
-  <div class="text-center text-white">
-    <h1>アプリ説明画面</h1>
+
+  <div class="text-center text-dark">
+    <h2>はじめまして　あっとほうむペイです</h2>
+    <p>家庭の中でのオリジナル通貨のやりとりをWEB上で確認できるアプリです。</p>
+    <div class="row">
+    <h5 class="col-md-3 text-secondary">あげる
+    <p>お小遣いやお手伝いをしてくれた時等、ペイを残高に追加できます。</p></h5>
+    <h5 class="offset-col-4 col-md-3 text-secondary">へらす
+    <p>ペイを現金化する時や代わりとなるものをお子様にあげた場合に残高から引くことができます。</p></h5>
+    <h5 class="offset-col-4 col-md-3 text-secondary">履歴確認
+    <p>ペイのやりとりの履歴が確認できます。</p></h5>
+    <h5 class="offset-col-4 col-md-3 text-secondary">お手伝い
+    <p>お手伝いに対する報酬（ペイ）の設定ができます。</p></h5>
+    </div>
+    
+    
+    <%= link_to 'ログイン', login_path, class: 'btn btn-lg btn-success' %><br><br>
     <%= link_to '初めましての方はこちら（新規登録）', signup_path, class: 'btn btn-lg btn-primary' %>
+    
+    
   </div>
 </div>
 <% end %>

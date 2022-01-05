@@ -1,0 +1,20 @@
+<h2><%= current_user.kidsname %>ちゃん登録済みのお手伝い一覧</h2>
+<table class="table table-bordered table-striped">
+    <th class="text-start">お手伝い項目</th>
+    <th class="text-start">いくら？</th>
+    <th class="text-start">編集</th>
+
+
+<% @tasks.each do |task| %>
+<tr>
+<td><%= task.content %></td>
+<td><%= task.price %>ペイ</td>
+<td><%= link_to "編集",edit_task_path(task.id), class: 'btn btn-success btn-sm' %>
+</tr>
+
+<% end %>  
+<%== pagy_bootstrap_nav(@pagy) %>
+<%= link_to '新規項目の投稿', new_task_path %>
+    
+    
+

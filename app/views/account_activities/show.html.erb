@@ -1,0 +1,19 @@
+<h1>取引完了しました</h1>
+
+<p><%= current_user.kidsname %>ちゃんの現在残高へ</p>
+<p><%= @accountactivity.price %>ペイ
+<% if @accountactivity.give_take  == 'あげる'%>
+ あげました
+<% else %>
+　へらしました
+<% end %>
+</p>
+
+<p><%= @accountactivity.remarks %></p>
+
+<p>結果<%= @accountactivity.balance %>ペイ</p>
+
+
+<%= link_to 'やりとり履歴一覧に戻る', history_account_activities_path(current_user), class: 'nav-link' %></li>
+<%= link_to 'トップページに戻る', root_path(current_user), class: 'nav-link' %></li>
+

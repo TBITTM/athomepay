@@ -1,0 +1,9 @@
+<h1><%= @task.content %> のページ</h1>
+
+<p>お手伝い項目:<%= @task.content %></p>
+<p>いくら？: <%= @task.price %>ペイ</p>
+
+
+<%= link_to '一覧に戻る', tasks_path %>
+<%= link_to 'この項目を編集する', edit_task_path(@task,@price) %>
+<%= link_to 'この項目を削除する', @task, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>

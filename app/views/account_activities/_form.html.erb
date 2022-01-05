@@ -1,0 +1,30 @@
+<% if @accountactivity.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @accountactivity.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= form_with(model: accountactivity) do |f| %>
+
+<h3><%= current_user.kidsname %>ちゃんの現在残高</h3>
+<h3 class="text-center text-dark"><%= image_tag "graypig48.png" %><%= current_user.balance %>ペイ　　です</h3>
+
+  <br>
+  <%= f.label :price, 'いくら？ 動かす数字を入力ください' %>
+  <%= f.text_field :price %>
+
+  <p>
+  <%= f.label :remarks, 'お手伝い内容や入出金の理由を入力ください' %>
+  <%= f.text_field :remarks %>
+  </p>
+
+  
+  <p>
+  <%= f.submit 'あげる（増やす場合はこちら）' %>
+  <%= f.submit 'へらす（減らす場合はこちら）' %>
+  </p>
+<% end %>

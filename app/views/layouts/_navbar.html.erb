@@ -1,7 +1,9 @@
 <header class="mb-4">
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-success">
     <div class="container-fluid ps-5 pe-5">
-      <a class="navbar-brand" href="/">あっとほうむ・ペイ</a>
+      <a class="navbar-brand" href="/">あっとほうむ・ペイ
+      <%= image_tag "graypig48.png" %>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -9,11 +11,13 @@
         
       <% if logged_in? %>
       <div class="btn-group">
-      <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">こんにちわ<%= current_user.name %>さん</button>
+      <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">こんにちは<%= current_user.name %>さん</button>
       <ul class="dropdown-menu dropdown-menu-end">
-        <li class="dropdown-item"><%= link_to 'My profile', user_path(current_user), class: 'nav-link' %></li>
+        <li class="dropdown-item"><%= link_to 'あげるorへらす', new_account_activity_path(current_user), class: 'nav-link' %></li>
+        <li class="dropdown-item"><%= link_to 'やりとり履歴一覧', history_account_activities_path(current_user), class: 'nav-link' %></li>
+        <li class="dropdown-item"><%= link_to 'お手伝い項目一覧', tasks_path(current_user), class: 'nav-link' %></li>
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link' %></li>
+        <li class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
       </ul>
       </div>
       <% else %>
